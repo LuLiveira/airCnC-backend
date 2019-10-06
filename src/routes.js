@@ -20,7 +20,11 @@ routes.get("/spots", SpotController.index);
 routes.get("/dashboard", DashboardController.show);
 
 routes.get("/", (req, resp) => {
-    return resp.send('<h1>Backend em NodeJS desenvolvido na Semana Omnistack 9.<h1> <a href="http://github.com/luliveira">Meu github </a>');
+    return resp.send(
+        '<h1>Backend em NodeJS com MySQL desenvolvido na Semana Omnistack 9.<h1>' +
+        '<form enctype="text/plain" method="get" action="mailto:lcsd.lucas@gmail.com">            Your First Name: <input type="text" name="first_name"><br>             Your Last Name: <input type="text" name="last_name"><br>             Comments: <textarea rows="5" cols="30" name="comments"></textarea>             <input type="submit" value="Send">         </form>' +
+        '<a href="https://github.com/LuLiveira/backend-nodejs">Meu github </a>'
+        );
 })
 
 
