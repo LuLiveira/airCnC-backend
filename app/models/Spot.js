@@ -3,6 +3,12 @@ module.exports = (sequelize, DataTypes) => {
       thumbnail: DataTypes.STRING,
       company: DataTypes.STRING,
       price: DataTypes.NUMBER,
+      thumbnail_url: { 
+        type: DataTypes.VIRTUAL,
+        get: function () {
+          return `http://localhost:3333/files/${this.thumbnail}`
+        }
+      },
       techs: {
           type: DataTypes.STRING,
           get: function(){

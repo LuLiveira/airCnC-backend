@@ -4,7 +4,11 @@ module.exports = {
     async show(req, resp){
         const { user_id } = req.headers;
 
-        const spots = await Spot.findAll({user_id: user_id});
+        const spots = await Spot.findAll({
+            where:{
+                user_id: user_id
+            }
+        });
 
         return resp.json(spots);
     }
