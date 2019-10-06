@@ -13,8 +13,6 @@ const path = require('path');
 // //Importando mongoose.
 // const mongoose = require('mongoose');
 
-const PORT = 3333;
-
 const app = express();
 
 app.use(express.urlencoded({extended: false}));
@@ -33,5 +31,5 @@ app.use('/files', express.static(path.resolve(__dirname, '..', 'uploads')));
 app.use(routes); //Precisa vir depois de express.json para continuar entendendo json.
 
 
-app.listen(PORT);
+app.listen(process.env.PORT || 3333);
 
