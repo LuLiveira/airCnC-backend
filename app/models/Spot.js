@@ -6,7 +6,7 @@ module.exports = (sequelize, DataTypes) => {
       thumbnail_url: { 
         type: DataTypes.VIRTUAL,
         get: function () {
-          return `http://localhost:3333/files/${this.thumbnail}`
+          return `http://192.168.15.14:3333/files/${this.thumbnail}`
         }
       },
       techs: {

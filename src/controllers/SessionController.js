@@ -9,10 +9,19 @@ module.exports = {
         const { email } = req.body;
         const { nome } = req.body;
 
-        const user = await User.create({
-            email, nome
+        const user = await User.findOne({
+            where:{
+                email: email
+            }
         });
 
-        res.json(user);
+        (user == null) ? user = await User.create({
+            nome,
+            email
+        }) : user
+
+        
+
+        return res.json(user);
     }
 };

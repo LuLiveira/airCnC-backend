@@ -10,10 +10,20 @@ const cors = require('cors');
 
 const path = require('path');
 
+const socketio = require('socket.io');
+const http = require('http');
+
 // //Importando mongoose.
 // const mongoose = require('mongoose');
 
 const app = express();
+//Extraindo o app do express.
+const server = http.Server(app);
+const io = socketio(server);
+
+io.on('connection', socket => {
+    console.log('Usuario contectado', socket.id);
+});
 
 app.use(express.urlencoded({extended: false}));
 
@@ -31,5 +41,5 @@ app.use('/files', express.static(path.resolve(__dirname, '..', 'uploads')));
 app.use(routes); //Precisa vir depois de express.json para continuar entendendo json.
 
 
-app.listen(process.env.PORT || 3333);
+server.listen(process.env.PORT || 3333);
 
