@@ -20,7 +20,7 @@ routes.get("/spots", SpotController.index);
 routes.get("/dashboard", DashboardController.show);
 
 routes.get("/", (req, resp) => {
-    return resp.send('Hello World');
+    return resp.send('<h1>Backend em NodeJS desenvolvido na Semana Omnistack 9.<h1> <a href="http://github.com/luliveira">Meu github </a>');
 })
 
 
